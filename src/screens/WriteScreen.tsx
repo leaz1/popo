@@ -1,53 +1,39 @@
 import '../stylesheets/Write.scss';
-import {SetStateAction, useEffect, useState} from "react";
+import React, {SetStateAction, useEffect, useState} from "react";
 import {Field, FieldArray, Form, Formik, FormikProps, useFormik} from "formik";
 import {values} from "lodash";
+import {NavBarItem} from "../components/NavBarItem";
+import {NavBar} from "../components/NavBar";
 
 export function WriteScreen() {
-
-    // const workForm = useFormik({
-    //     initialValues: {
-    //         title: '',
-    //         tags: '',
-    //         introduction: '',
-    //         chapters: [
-    //             {
-    //                 title: 'Sample chapter',
-    //                 text: 'The quick brown fox jumps over the lazy dog',
-    //             }
-    //         ],
-    //     },
-    //     onSubmit: values => {
-    //         console.log(workForm.values);
-    //     }
-    // });
-    //
-    // function handleEdit(event: any) {
-    //     setTitle(event.target.value);
-    // }
 
     const [hideCollapsibleMeta, setHideCollapsibleMeta] = useState(false);
 
     return (
-        <div className="write-area">
-            <Formik
-                initialValues={{
-                    title: '',
-                    tags: '',
-                    introduction: '',
-                    text: '',
-                    chapters: [
-                        {
-                            title: '',
-                            text: '',
-                        },
-                    ]
-                    // friends: ['jared', 'ian', 'brent']
-                }}
-                onSubmit={(values) => console.log(values)}
-            >
-                {({values}) => (
-                    <Form className="write-form-area">
+        <>
+            <NavBar level="1">
+                <NavBarItem link={`works`} linkText="New" />
+                <NavBarItem link={`tags`} linkText="Continue" />
+            </NavBar>
+            <div className="write-area">
+                <Formik
+                    initialValues={{
+                        title: '',
+                        tags: '',
+                        introduction: '',
+                        text: '',
+                        chapters: [
+                            {
+                                title: '',
+                                text: '',
+                            },
+                        ]
+                        // friends: ['jared', 'ian', 'brent']
+                    }}
+                    onSubmit={(values) => console.log(values)}
+                >
+                    {({values}) => (
+                        <Form className="write-form-area">
                             <div className="write-entry-area">
                                 <div className="write-meta-area">
                                     <div className="write-title-area">
@@ -74,7 +60,7 @@ export function WriteScreen() {
                                         name="chapters"
                                         render={arrayHelpers => (
                                             values.chapters.map((chapter, index) => (
-                                                <div key={index} className="write-chapter">
+                                                <div key={index} className="write-chapter" id={`chapter-anchor-${index}`}>
                                                     <Field type="text" name={`chapters[${index}].title`} className="write-short-text" hidden/>
                                                     <Field as="textarea" name={`chapters[${index}].text`} className="write-text"/>
                                                     <div className="write-chapter-widgets">
@@ -109,8 +95,10 @@ export function WriteScreen() {
                                         render={arrayHelpers => (
                                             values.chapters.map((chapter, index) => (
                                                 <div className="write-chapter-action">
-                                                    <div className="write-chapter-action-label">
-                                                        Chapter {index}
+                                                    <div className="write-chapter-anchor">
+                                                        <button onClick={() => document.getElementById(`chapter-anchor-${index}`)?.scrollIntoView()}>
+                                                            Chapter {index}
+                                                        </button>
                                                     </div>
                                                     <div className="write-chapter-action-set">
                                                         <button
@@ -122,7 +110,10 @@ export function WriteScreen() {
                                                         </button>
                                                         <button
                                                             type="button"
-                                                            onClick={() => arrayHelpers.insert(index + 1, '')}
+                                                            onClick={() => arrayHelpers.insert(index + 1, {
+                                                                title: '',
+                                                                text: '',
+                                                            })}
                                                             className="write-chapter-action-option"
                                                         >
                                                             +
@@ -143,10 +134,11 @@ export function WriteScreen() {
                                 </div>
 
                             </div>
-                    </Form>
-                )}
-            </Formik>
-        </div>
+                        </Form>
+                    )}
+                </Formik>
+            </div>
+        </>
 
     )
 }

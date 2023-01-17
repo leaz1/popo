@@ -117,17 +117,27 @@
 .write-chapter-action {
   position: relative;
   cursor: pointer;
-  //&:hover .write-chapter-action-set{
-  //  display: flex;
-  //}
+  &:hover .write-chapter-action-set{
+    display: flex;
+  }
+}
+
+.write-chapter-anchor {
+  & > button {
+    all: unset;
+    cursor: pointer;
+  }
 }
 
 .write-chapter-action-set {
-  display: flex;
+  display: none;
   position: absolute;
   top: 0;
   bottom: 0;
   left: calc(100% + 0.25em);
+  &:hover {
+    display: flex;
+  }
 }
 
 button.write-chapter-action-option {
