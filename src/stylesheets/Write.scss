@@ -1,0 +1,140 @@
+.write-area {
+  flex-grow: 1;
+}
+
+.write-form-area {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px 105px;
+  display: flex;
+  flex-flow: row;
+}
+
+.write-entry-area {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+}
+
+.write-action-area {
+  font-family: "IBM Plex Mono";
+}
+
+.write-meta-area {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 0.5em;
+}
+
+.write-title-area {
+  width: 100%;
+  position: relative;
+}
+
+.write-collapse-button {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.write-meta-collapsible {
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+.write-chapters-area {
+  display: flex;
+  flex-flow: row;
+  flex-grow: 1;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.write-chapter {
+  min-width: calc(100% - 105px);
+  position: relative;
+}
+
+.write-chapter:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+.write-chapter-widgets {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.write-chapter-widget {
+  all: unset;
+  cursor: pointer;
+  padding: 0.75em;
+  color: #BCAA8D;
+  &:hover {
+    color: black;
+  }
+}
+
+.write-short-text {
+  background-color: #E9E3D9;
+  border: none;
+  outline: none;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.write-text {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  background-color: #E9E3D9;
+  border: none;
+  outline: none;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.write-action-area {
+  text-align: end;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.write-action button{
+  all: unset;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.write-chapter-action {
+  position: relative;
+  cursor: pointer;
+  //&:hover .write-chapter-action-set{
+  //  display: flex;
+  //}
+}
+
+.write-chapter-action-set {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(100% + 0.25em);
+}
+
+button.write-chapter-action-option {
+  all: unset;
+  cursor: pointer;
+  padding: 0 0.25em;
+  &:hover {
+    color: #BCAA8D;
+  }
+}

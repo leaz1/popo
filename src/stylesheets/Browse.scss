@@ -1,0 +1,52 @@
+.browse {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px 105px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 105px;
+}
+
+.search-input-area {
+  font-family: "IBM Plex Mono";
+  grid-column: 1;
+  display: flex;
+  flex-flow: column;
+  text-align: end;
+}
+
+.search-type-area {
+  margin-bottom: 1.5em;
+}
+
+.search-type-area input {
+  font-size: 1.5em;
+  text-align: end;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid black;
+  background: none;
+}
+
+.search-filter {
+  margin-bottom: 1.5em;
+  select {
+    font-family: inherit;
+    border: none;
+    background: none;
+    border-radius: 0;
+    outline: none;
+    font-size: 1em;
+  }
+}
+
+.search-filter-label {
+  //font-weight: bolder;
+}
+
+.search-result-area {
+  grid-column: 2 / 4;
+  height: 100%;
+  overflow-y: scroll;
+}

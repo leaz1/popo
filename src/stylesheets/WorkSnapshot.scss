@@ -1,0 +1,21 @@
+.work-snapshot {
+  width: 100%;
+  min-height: 90px;
+  //background-color: white;
+  //background-color: #E9E3D9;
+  //border: 1px solid #BCAA8D;
+  border-bottom: 2px solid black;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  box-sizing: border-box;
+  //border-radius: 1em;
+  &:hover {
+    background-color: #BCAA8D;
+  }
+}
+
+.work-snapshot-details {
+display: flex;
+flex-flow: row;
+justify-content: space-between;
+}

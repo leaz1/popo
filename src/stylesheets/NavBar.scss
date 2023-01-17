@@ -1,0 +1,18 @@
+.nav-bar {
+    //background-color: lightpink;
+    //border-right: 1px solid deeppink;
+    width: 105px;
+    font-size: 1.5em;
+    padding: 30px;
+}
+
+.nav-bar-item {
+    text-align: end;
+    &:hover::before {
+        content: "> ";
+    }
+}
+
+a.activated {
+    color: #BCAA8D;
+}
