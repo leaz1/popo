@@ -1,15 +1,23 @@
 .nav-bar {
     //background-color: lightpink;
     //border-right: 1px solid deeppink;
-    width: 105px;
+    min-width: 105px;
     font-size: 1.5em;
     padding: 30px;
 }
 
 .nav-bar-item {
     text-align: end;
-    &:hover::before {
+    white-space: nowrap;
+    position: relative;
+    a span {
+        position: relative;
+    }
+    &:hover a span::before {
         content: "> ";
+        position: absolute;
+        right: calc(100% + 0.25em);
+        color: black;
     }
 }
 

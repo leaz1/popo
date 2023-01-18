@@ -35,13 +35,21 @@
   all: unset;
   cursor: pointer;
   position: absolute;
-  left: 0;
+  right: calc(100% + 0.25em);
   top: 0;
   bottom: 0;
+  padding: 0.75em;
+  &:hover {
+    color: #BCAA8D;
+  }
 }
 
-.write-meta-collapsible {
+.write-collapsible-area {
   width: 100%;
+  margin-top: 0.5em;
+}
+
+.write-introduction {
   margin-top: 0.5em;
 }
 
@@ -76,9 +84,8 @@
   all: unset;
   cursor: pointer;
   padding: 0.75em;
-  color: #BCAA8D;
   &:hover {
-    color: black;
+    color: #BCAA8D;
   }
 }
 
@@ -102,6 +109,8 @@
 }
 
 .write-action-area {
+  min-width: 120px;
+  margin-left: 60px;
   text-align: end;
   display: flex;
   flex-flow: column;
@@ -147,4 +156,8 @@ button.write-chapter-action-option {
   &:hover {
     color: #BCAA8D;
   }
+}
+
+.invert {
+  transform: rotate(180deg);
 }

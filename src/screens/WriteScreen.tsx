@@ -1,7 +1,6 @@
 import '../stylesheets/Write.scss';
 import React, {SetStateAction, useEffect, useState} from "react";
 import {Field, FieldArray, Form, Formik, FormikProps, useFormik} from "formik";
-import {values} from "lodash";
 import {NavBarItem} from "../components/NavBarItem";
 import {NavBar} from "../components/NavBar";
 
@@ -28,7 +27,6 @@ export function WriteScreen() {
                                 text: '',
                             },
                         ]
-                        // friends: ['jared', 'ian', 'brent']
                     }}
                     onSubmit={(values) => console.log(values)}
                 >
@@ -41,9 +39,9 @@ export function WriteScreen() {
                                                className="write-short-text write-title full-width"/>
                                         <button
                                             type="button"
-                                            className="write-collapse-button"
+                                            className={"write-collapse-button" + (hideCollapsibleMeta ? " invert" : "")}
                                             onClick={() => setHideCollapsibleMeta(!hideCollapsibleMeta)}
-                                        >Fold
+                                        >^
                                         </button>
                                     </div>
                                     <div className="write-collapsible-area" hidden={hideCollapsibleMeta}>
@@ -96,7 +94,9 @@ export function WriteScreen() {
                                             values.chapters.map((chapter, index) => (
                                                 <div className="write-chapter-action">
                                                     <div className="write-chapter-anchor">
-                                                        <button onClick={() => document.getElementById(`chapter-anchor-${index}`)?.scrollIntoView()}>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => document.getElementById(`chapter-anchor-${index}`)?.scrollIntoView()}>
                                                             Chapter {index}
                                                         </button>
                                                     </div>

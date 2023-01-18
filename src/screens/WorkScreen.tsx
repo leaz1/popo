@@ -10,6 +10,19 @@ export function WorkScreen() {
             <h2>
                 Work: { name }
             </h2>
+            <div className="work-area">
+                <div className="work-read-area">
+                    <div className="work-meta-area">
+
+                    </div>
+                    <div className="work-chapters-area">
+
+                    </div>
+                </div>
+                <div className="work-helper-area">
+
+                </div>
+            </div>
         </div>
     )
 }
